@@ -1,0 +1,36 @@
+BoxLayout:
+    orientation: 'vertical'
+
+    ScreenManager:
+        id: screen_manager
+
+        Screen:
+            name: 'game_screen'
+            on_touch_down: screen_manager.current = 'game_screen'
+            Label:
+                text: "game"
+
+        Screen:
+            name: 'settings_screen'
+            on_touch_down: screen_manager.current = 'game_screen'
+            Label:
+                text: "settings"
+
+        Screen:
+            name: 'about_screen'
+            on_touch_down: screen_manager.current = 'game_screen'
+            Label:
+                text: "Written by IT@JCU"
+
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: 1, 0.1
+        Button:
+            font_size: '24sp'
+            text: "Settings"
+            on_press: screen_manager.current = 'settings_screen'
+        Button:
+            font_size: '24sp'
+            text: "About"
+            on_press: screen_manager.current = 'about_screen'
