@@ -16,7 +16,6 @@ class GuessingGame(App):
     def __init__(self):
         super(GuessingGame, self).__init__()
         self.game = Game()
-        self.theme = Themes()
 
     def build(self):
         self.title = "Guessing Game 0.0.1"
