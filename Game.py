@@ -2,21 +2,28 @@
 Game - represents the state of game-play of our guessing game
 """
 
-
-# TODO make the field 'secret' a random value in the range 1 - 10
-
-# TODO implement guess() - it should compare the given value with the secret
-# TODO guess() returns 'found it', 'try bigger', 'try smaller'
-
-# TODO add a number_of_moves counter
-
-
 from random import randint
 
 
 class Game:
     def __init__(self):
         self.secret = 0
+        self.number_of_moves = 0
+        self.set_secret()
+
+    def set_secret(self):
+        self.secret = randint(0, 11)
 
     def guess(self, value):
-        pass
+        if value > self.secret:
+            return 'try smaller'
+        elif value < self.secret:
+            return 'try bigger'
+        else:
+            self.number_of_moves = -1
+            self.set_secret()
+            return 'found it'
+
+    def add_move(self):
+        self.number_of_moves += 1
+        return self.number_of_moves
